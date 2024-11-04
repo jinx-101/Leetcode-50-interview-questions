@@ -1,0 +1,17 @@
+-- https://leetcode.com/problems/department-top-three-salaries/submissions/1443013422/?envType=study-plan-v2&envId=top-sql-50
+-- Department_top_three_salaries
+
+WITH CTE AS 
+(
+SELECT D.name as Department , E.name as Employee , E.salary as Salary,
+DENSE_RANK() OVER(PARTITION BY E.departmentId order by e.salary DESC) as d_rank
+FROM Employee E
+INNER JOIN DEPARTMENT D ON 
+E.departmentId = D.id
+)
+
+SELECT Department, Employee, Salary  FROM CTE WHERE d_rank <4;
+
+
+
+

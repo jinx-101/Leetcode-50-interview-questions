@@ -1,0 +1,5 @@
+--https://leetcode.com/problems/fix-names-in-a-table/submissions/1444077015/?envType=study-plan-v2&envId=top-sql-50
+--fixing_name_in_sql_query
+
+SELECT user_id , concat(UPPER(LEFT(NAME,1)),lower(SUBSTRING(name,2,length(name)))) as name FROM Users U
+order by user_id

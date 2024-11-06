@@ -1,0 +1,8 @@
+# Write your MySQL query statement below
+--https://leetcode.com/problems/biggest-single-number/?envType=study-plan-v2&envId=top-sql-50
+-- 619. Biggest Single Number
+SELECT IF(count(num)>1,NULL,num) as num
+FROM MyNumbers
+GROUP BY num
+ORDER by num DESC
+limit 1;

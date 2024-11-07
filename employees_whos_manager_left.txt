@@ -1,0 +1,21 @@
+-- https://leetcode.com/problems/employees-whose-manager-left-the-company/?envType=study-plan-v2&envId=top-sql-50
+--1978. Employees Whose Manager Left the Company
+
+
+
+WITH active_manager_employees as 
+(
+SELECT Emp.employee_id 
+FROM Employees Emp inner join Employees  Mgr
+ON Emp.manager_id = Mgr.employee_id
+
+)
+
+select employee_id from Employees 
+where employee_id NOT IN (select employee_id from active_manager_employees) and manager_id is not null AND salary < 30000
+order by employee_id
+
+-- BETTER AND SIMPLER SOLUTION
+select employee_id from Employees where salary <30000
+and manager_id not in (select employee_id from Employees)
+order by employee_id

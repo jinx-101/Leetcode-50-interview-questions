@@ -1,0 +1,14 @@
+-- https://leetcode.com/problems/list-the-products-ordered-in-a-period/?envType=study-plan-v2&envId=top-sql-50
+-- products that have 100 units ordered in February 2020 and their amount 
+
+SELECT P.product_name , SUM(unit) as unit
+FROM Orders O LEFT JOIN Products P 
+ON O.product_id = P.product_id
+WHERE month(O.order_date) = 02 and year(O.order_date) = 2020
+GROUP BY O.product_id 
+HAVING SUM(unit) >= 100
+
+
+
+
+

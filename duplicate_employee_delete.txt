@@ -1,0 +1,6 @@
+# Write your MySQL query statement below
+
+--https://leetcode.com/problems/delete-duplicate-emails/?envType=study-plan-v2&envId=top-sql-50
+--196. Delete Duplicate Emails
+delete p2 from Person p1 inner join Person p2 on
+p1.email=p2.email and p1.id<p2.id

@@ -46,3 +46,15 @@ Explanation:
 - English has 1 student, so we do not include it.
 - Biology has 1 student, so we do not include it.
 - Computer has 1 student, so we do not include it.
+
+
+
+-- classes more than 5 students ........
+/*https://leetcode.com/problems/classes-more-than-5-students/submissions/1457404889/?envType=study-plan-v2&envId=top-sql-50*/
+
+
+SELECT class 
+FROM Courses C 
+GROUP BY class 
+HAVING COUNT(distinct student) > 4 
+
